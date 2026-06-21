@@ -431,15 +431,19 @@ function initCarousel() {
     d.addEventListener("click", () => goToSlide(+d.dataset.idx));
   });
 
-  $("gallery-continue-btn").addEventListener("click", () => {
-    goTo("screen-6");
+$("gallery-continue-btn").addEventListener("click", () => {
+  goTo("screen-6");
+
+  if (!letterStarted) {
     setTimeout(startLetter, 400);
-  });
-}
+  }
+
+}, { once: true });
 
 // ============================================================
 //  SCREEN 6 — LOVE LETTER TYPEWRITER
 // ============================================================
+let letterStarted = false;
 function startLetter() {
   const el = $("letter-text");
   el.textContent = "";
