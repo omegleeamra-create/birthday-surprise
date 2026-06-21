@@ -8,7 +8,7 @@
 // ============================================================
 
 /** The correct birthday passcode in DDMM format (e.g. 1505 for 15 May) */
-const CORRECT_PASSWORD = "1505";
+const CORRECT_PASSWORD = "2206";
 
 /** Her name shown on the final screen */
 const HER_NAME = "Princess";
@@ -21,7 +21,7 @@ const HER_NAME = "Princess";
  *   • Use a royalty-free service like Pixabay
  * Leave as "" to disable music entirely.
  */
-const MUSIC_URL = "";
+const MUSIC_URL = "music.mp3";
 
 /**
  * Photos for the gallery carousel.
