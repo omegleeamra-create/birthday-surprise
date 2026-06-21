@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Happy Birthday 🎂</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== AMBIENT FLOATING PARTICLES ========== -->
+  <div id="ambient-particles" aria-hidden="true"></div>
+
+  <!-- ========== MUSIC BUTTON ========== -->
+  <!--
+    MUSIC: Replace the src in script.js (bgMusic variable) with your audio file URL.
+    Supported: MP3, OGG. Recommended: a soft romantic instrumental.
+  -->
+  <button id="music-btn" aria-label="Toggle music" title="Toggle music">
+    <i class="fa-solid fa-music"></i>
+  </button>
+
+  <!-- ========================================================
+       SCREEN 1 — OPENING
+  ========================================================= -->
+  <section class="screen active" id="screen-1">
+    <div class="screen-inner">
+      <div class="opening-hearts" aria-hidden="true">
+        <span class="big-heart">💖</span>
+      </div>
+      <p class="subtitle-label">A little something for someone special…</p>
+      <h1 class="typewriter-text" id="opening-text"></h1>
+      <button class="btn-primary pulse-btn" id="begin-btn">
+        <i class="fa-solid fa-heart"></i> Tap to Begin
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SCREEN 2 — PASSCODE LOCK
+  ========================================================= -->
+  <!--
+    PASSWORD: Change CORRECT_PASSWORD in script.js.
+    Format: DDMM  (e.g., 1505 for May 15th)
+  -->
+  <section class="screen" id="screen-2">
+    <div class="screen-inner">
+      <div class="lock-icon" id="lock-icon"><i class="fa-solid fa-lock"></i></div>
+      <h2 class="screen-title">Enter Your Birthday</h2>
+      <p class="screen-sub">DD MM format 💕</p>
+
+      <div class="passcode-dots" id="passcode-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <p class="error-msg" id="error-msg">Oops! Try again sweetheart 💕</p>
+
+      <div class="numpad" id="numpad">
+        <button class="num-key" data-val="1">1</button>
+        <button class="num-key" data-val="2">2</button>
+        <button class="num-key" data-val="3">3</button>
+        <button class="num-key" data-val="4">4</button>
+        <button class="num-key" data-val="5">5</button>
+        <button class="num-key" data-val="6">6</button>
+        <button class="num-key" data-val="7">7</button>
+        <button class="num-key" data-val="8">8</button>
+        <button class="num-key" data-val="9">9</button>
+        <button class="num-key num-clear" id="clear-key"><i class="fa-solid fa-delete-left"></i></button>
+        <button class="num-key" data-val="0">0</button>
+        <button class="num-key num-enter" id="enter-key"><i class="fa-solid fa-check"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SCREEN 3 — LOADING
+  ========================================================= -->
+  <section class="screen" id="screen-3">
+    <div class="screen-inner">
+      <div class="loading-icon" aria-hidden="true">🎀</div>
+      <h2 class="screen-title">Coding something special for you…</h2>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <p class="progress-percent" id="progress-percent">0%</p>
+      <p class="loading-msg" id="loading-msg">Preparing hugs ❤️</p>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SCREEN 4 — BIRTHDAY CAKE
+  ========================================================= -->
+  <section class="screen screen-dark" id="screen-4">
+    <div class="screen-inner">
+      <p class="cake-hint">Make a wish and blow the candles 🎂</p>
+
+      <!-- SVG Cake -->
+      <div class="cake-wrap" id="cake-wrap">
+        <svg class="cake-svg" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" aria-label="Birthday cake">
+          <!-- Plate -->
+          <ellipse cx="110" cy="230" rx="95" ry="14" fill="#f8bbd0" opacity="0.6"/>
+          <!-- Bottom tier -->
+          <rect x="25" y="170" width="170" height="60" rx="18" fill="#f48fb1"/>
+          <rect x="25" y="170" width="170" height="15" rx="8" fill="#f06292"/>
+          <!-- Middle tier -->
+          <rect x="45" y="115" width="130" height="60" rx="16" fill="#f8bbd0"/>
+          <rect x="45" y="115" width="130" height="14" rx="7" fill="#f48fb1"/>
+          <!-- Top tier -->
+          <rect x="68" y="72" width="84" height="48" rx="14" fill="#fce4ec"/>
+          <rect x="68" y="72" width="84" height="13" rx="6" fill="#f8bbd0"/>
+          <!-- Frosting drips -->
+          <path d="M68 85 Q75 95 82 85 Q89 95 96 85 Q103 95 110 85 Q117 95 124 85 Q131 95 138 85 Q145 95 152 85" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M45 128 Q55 140 65 128 Q75 140 85 128 Q95 140 105 128 Q115 140 125 128 Q135 140 145 128 Q155 140 165 128 Q175 140 175 128" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Decorative dots -->
+          <circle cx="60" cy="200" r="5" fill="#fce4ec"/>
+          <circle cx="160" cy="200" r="5" fill="#fce4ec"/>
+          <circle cx="110" cy="205" r="5" fill="#fce4ec"/>
+          <circle cx="80" cy="148" r="4" fill="#f06292"/>
+          <circle cx="140" cy="148" r="4" fill="#f06292"/>
+          <!-- Candles -->
+          <g id="candle-1">
+            <rect x="88" y="42" width="10" height="32" rx="5" fill="#fff9c4"/>
+            <ellipse cx="93" cy="42" rx="5" ry="3" fill="#fff176"/>
+            <!-- Flame -->
+            <g class="flame" id="flame-1">
+              <ellipse cx="93" cy="34" rx="5" ry="8" fill="#ffb74d" opacity="0.9"/>
+              <ellipse cx="93" cy="36" rx="3" ry="5" fill="#fff176"/>
+            </g>
+          </g>
+          <g id="candle-2">
+            <rect x="108" y="36" width="10" height="38" rx="5" fill="#f8bbd0"/>
+            <ellipse cx="113" cy="36" rx="5" ry="3" fill="#f48fb1"/>
+            <g class="flame" id="flame-2">
+              <ellipse cx="113" cy="28" rx="5" ry="8" fill="#ff8a65" opacity="0.9"/>
+              <ellipse cx="113" cy="30" rx="3" ry="5" fill="#ffcc80"/>
+            </g>
+          </g>
+          <g id="candle-3">
+            <rect x="128" y="42" width="10" height="32" rx="5" fill="#b3e5fc"/>
+            <ellipse cx="133" cy="42" rx="5" ry="3" fill="#81d4fa"/>
+            <g class="flame" id="flame-3">
+              <ellipse cx="133" cy="34" rx="5" ry="8" fill="#ffb74d" opacity="0.9"/>
+              <ellipse cx="133" cy="36" rx="3" ry="5" fill="#fff176"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <button class="btn-primary" id="blow-btn">
+        <i class="fa-solid fa-wind"></i> Blow Candles
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SCREEN 5 — PHOTO GALLERY
+  ========================================================= -->
+  <!--
+    PHOTOS: Replace placeholder images in script.js (PHOTOS array).
+    Each entry: { src: "url-or-path", caption: "Your caption" }
+  -->
+  <section class="screen" id="screen-5">
+    <div class="screen-inner gallery-screen">
+      <h2 class="screen-title gallery-title">Our Memories 💕</h2>
+
+      <div class="carousel-wrap">
+        <div class="carousel" id="carousel">
+          <!-- slides injected by JS -->
+        </div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+
+      <p class="swipe-hint">← swipe to browse →</p>
+
+      <button class="btn-primary" id="gallery-continue-btn" style="display:none;">
+        Continue <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SCREEN 6 — LOVE LETTER
+  ========================================================= -->
+  <!--
+    LETTER: Edit the LETTER_TEXT variable in script.js to personalise.
+  -->
+  <section class="screen" id="screen-6">
+    <div class="screen-inner">
+      <h2 class="screen-title">A Letter For You 💌</h2>
+      <div class="letter-card">
+        <div class="letter-deco" aria-hidden="true">💌</div>
+        <p class="letter-text" id="letter-text"></p>
+        <p class="letter-sign">❤️ Forever Yours ❤️</p>
+      </div>
+      <button class="btn-primary" id="letter-next-btn" style="display:none;">
+        Open Your Gift <i class="fa-solid fa-gift"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SCREEN 7 — FINAL CELEBRATION
+  ========================================================= -->
+  <!--
+    NAME: Change HER_NAME in script.js
+  -->
+  <section class="screen screen-final" id="screen-7">
+    <div class="screen-inner final-inner">
+      <div class="final-top" aria-hidden="true">
+        <div class="balloons" id="balloons"></div>
+      </div>
+
+      <h2 class="final-hb">HAPPY BIRTHDAY</h2>
+      <h1 class="final-name" id="final-name"><!-- filled by JS --></h1>
+      <p class="final-sub">🎉 Wishing you a day as beautiful as you are 🎉</p>
+
+      <div class="rising-hearts" id="rising-hearts" aria-hidden="true"></div>
+
+      <button class="btn-primary replay-btn" id="replay-btn">
+        <i class="fa-solid fa-rotate-right"></i> Replay Surprise
+      </button>
+    </div>
+
+    <!-- Fireworks canvas -->
+    <canvas id="fireworks-canvas"></canvas>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
