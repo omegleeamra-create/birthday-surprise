@@ -444,11 +444,15 @@ function startLetter() {
   const el = $("letter-text");
   el.textContent = "";
   let i = 0;
+  let typing = false;
+  if (typing) return;
+  typing = true;
   function type() {
     if (i < LETTER_TEXT.length) {
       el.textContent += LETTER_TEXT[i++];
       setTimeout(type, 28);
     } else {
+      typing = false;
       document.querySelector(".letter-sign").classList.add("visible");
       setTimeout(() => {
         $("letter-next-btn").style.display = "inline-flex";
