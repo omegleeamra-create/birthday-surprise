@@ -30,19 +30,19 @@ const MUSIC_URL = "music.mp3";
  */
 const PHOTOS = [
   {
-    src: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80",
-    caption: "My favourite smile ❤️"
+    src: "photo1.jpg",
+    caption: "My favourite person ❤️"
   },
   {
-    src: "https://images.unsplash.com/photo-1529636547992-5a44dc37dc79?w=600&q=80",
-    caption: "Our happiest moment ✨"
+    src: "photo2.jpg",
+    caption: "My favorite Smile"
   },
   {
-    src: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=80",
+    src: "photo3.jpg",
     caption: "Forever my person 💕"
   },
   {
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80",
+    src: "photo4.jpg",
     caption: "Every memory with you 🌸"
   }
 ];
