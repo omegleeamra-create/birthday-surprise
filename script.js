@@ -431,14 +431,11 @@ function initCarousel() {
     d.addEventListener("click", () => goToSlide(+d.dataset.idx));
   });
 
-$("gallery-continue-btn").addEventListener("click", () => {
-  goTo("screen-6");
-
-  if (!letterStarted) {
+  $("gallery-continue-btn").addEventListener("click", () => {
+    goTo("screen-6");
     setTimeout(startLetter, 400);
-  }
-
-}, { once: true });
+  });
+}
 
 // ============================================================
 //  SCREEN 6 — LOVE LETTER TYPEWRITER
@@ -464,10 +461,11 @@ function startLetter() {
   }
   setTimeout(type, 400);
 
-$("gallery-continue-btn").addEventListener("click", () => {
-  goTo("screen-6");
-  setTimeout(startLetter, 400);
-});
+  $("letter-next-btn").addEventListener("click", () => {
+    goTo("screen-7");
+    setTimeout(startFinal, 500);
+  }, { once: true });
+}
 
 // ============================================================
 //  SCREEN 7 — FINAL CELEBRATION
