@@ -443,7 +443,6 @@ $("gallery-continue-btn").addEventListener("click", () => {
 // ============================================================
 //  SCREEN 6 — LOVE LETTER TYPEWRITER
 // ============================================================
-let letterStarted = false;
 function startLetter() {
   const el = $("letter-text");
   el.textContent = "";
@@ -465,11 +464,10 @@ function startLetter() {
   }
   setTimeout(type, 400);
 
-  $("letter-next-btn").addEventListener("click", () => {
-    goTo("screen-7");
-    setTimeout(startFinal, 500);
-  }, { once: true });
-}
+$("gallery-continue-btn").addEventListener("click", () => {
+  goTo("screen-6");
+  setTimeout(startLetter, 400);
+});
 
 // ============================================================
 //  SCREEN 7 — FINAL CELEBRATION
