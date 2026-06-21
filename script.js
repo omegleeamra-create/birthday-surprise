@@ -30,19 +30,19 @@ const MUSIC_URL = "music.mp3";
  */
 const PHOTOS = [
   {
-    src: "photo1.jpg",
+    src: "photo1.JPG",
     caption: "My favourite person ❤️"
   },
   {
-    src: "photo2.jpg",
+    src: "photo2.JPG",
     caption: "My favorite Smile"
   },
   {
-    src: "photo3.jpg",
+    src: "photo3.JPG",
     caption: "Forever my person 💕"
   },
   {
-    src: "photo4.jpg",
+    src: "photo4.JPG",
     caption: "Every memory with you 🌸"
   }
 ];
