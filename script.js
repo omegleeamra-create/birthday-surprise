@@ -8,10 +8,10 @@
 // ============================================================
 
 /** The correct birthday passcode in DDMM format (e.g. 1505 for 15 May) */
-const CORRECT_PASSWORD = "1505";
+const CORRECT_PASSWORD = "2206";
 
 /** Her name shown on the final screen */
-const HER_NAME = "Princess";
+const HER_NAME = "hiya";
 
 /**
  * Background music URL.
@@ -21,7 +21,7 @@ const HER_NAME = "Princess";
  *   • Use a royalty-free service like Pixabay
  * Leave as "" to disable music entirely.
  */
-const MUSIC_URL = "";
+const MUSIC_URL = "music.mp3";
 
 /**
  * Photos for the gallery carousel.
@@ -30,19 +30,19 @@ const MUSIC_URL = "";
  */
 const PHOTOS = [
   {
-    src: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80",
+    src: "photo1.JPG",
     caption: "My favourite smile ❤️"
   },
   {
-    src: "https://images.unsplash.com/photo-1529636547992-5a44dc37dc79?w=600&q=80",
+    src: "photo2.JPG",
     caption: "Our happiest moment ✨"
   },
   {
-    src: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=80",
+    src: "photo3.JPG",
     caption: "Forever my person 💕"
   },
   {
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80",
+    src: "photo4.JPG",
     caption: "Every memory with you 🌸"
   }
 ];
