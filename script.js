@@ -11,7 +11,7 @@
 const CORRECT_PASSWORD = "2206";
 
 /** Her name shown on the final screen */
-const HER_NAME = "Princess";
+const HER_NAME = "HIYA";
 
 /**
  * Background music URL.
